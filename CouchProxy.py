@@ -113,7 +113,7 @@ def get_logger(verbose, log_file):
     if log_file:
         fileHandler = logging.FileHandler(log_file)
         logger.addHandler(fileHandler)
-    elif len(args) == 0:
+    else:
         streamHandler = logging.StreamHandler()
         logger.addHandler(streamHandler)
         

@@ -123,6 +123,8 @@ class CouchProxyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                 self.add_cookie(fwdHeaders, affinity)
         
             # Forward on the request
+            self.path = self.path.replace('"', '%22')
+            self.path = self.path.replace('%2F', '/') # may get fixed in couch 1.1
             result, response = self.client.makeRequest(self.path, method, fwdHeaders, body)
         
             # Start an affinity session if required
