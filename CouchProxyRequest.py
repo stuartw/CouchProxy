@@ -53,8 +53,8 @@ class CouchProxyRequest:
         """
         method getting an HTTPConnection
         """
-        return httplib2.Http(".cache", 30)
         self.con_type = None
+        return httplib2.Http(".cache", 30)
     
     def _getSSLURLOpener(self, cert, key):
         """
